@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Revit API Interface</Name>
+    <Assembly>RevitApiInterface.dll</Assembly>
+    <AddInId>4B3F2A6C-9D3E-4E8A-9C2B-7E5A1D6F8B21</AddInId>
+    <FullClassName>RevitApiInterface.RevitApiInterfaceApp</FullClassName>
+    <VendorId>REVITAPIIF</VendorId>
+    <VendorDescription>Revit API Interface skill add-in</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Extract Elements</Name>
+    <Assembly>RevitApiInterface.dll</Assembly>
+    <AddInId>1A2B3C4D-1111-4E8A-9C2B-7E5A1D6F8B22</AddInId>
+    <FullClassName>RevitApiInterface.Commands.ExtractElementsCommand</FullClassName>
+    <VendorId>REVITAPIIF</VendorId>
+    <VendorDescription>Extract element properties from the active model</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Create Structural Elements</Name>
+    <Assembly>RevitApiInterface.dll</Assembly>
+    <AddInId>1A2B3C4D-2222-4E8A-9C2B-7E5A1D6F8B23</AddInId>
+    <FullClassName>RevitApiInterface.Commands.CreateStructuralElementCommand</FullClassName>
+    <VendorId>REVITAPIIF</VendorId>
+    <VendorDescription>Create structural framing, columns, and foundations</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Generate Schedule</Name>
+    <Assembly>RevitApiInterface.dll</Assembly>
+    <AddInId>1A2B3C4D-3333-4E8A-9C2B-7E5A1D6F8B24</AddInId>
+    <FullClassName>RevitApiInterface.Commands.GenerateScheduleCommand</FullClassName>
+    <VendorId>REVITAPIIF</VendorId>
+    <VendorDescription>Generate a schedule view for a chosen category</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Export Elements</Name>
+    <Assembly>RevitApiInterface.dll</Assembly>
+    <AddInId>1A2B3C4D-4444-4E8A-9C2B-7E5A1D6F8B25</AddInId>
+    <FullClassName>RevitApiInterface.Commands.ExportElementsCommand</FullClassName>
+    <VendorId>REVITAPIIF</VendorId>
+    <VendorDescription>Export extracted element data to CSV for analysis software</VendorDescription>
+  </AddIn>
+</RevitAddIns>
