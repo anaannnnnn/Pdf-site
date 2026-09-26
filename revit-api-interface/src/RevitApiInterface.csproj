@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Revit 2022-2024 run on .NET Framework 4.8; Revit 2025+ moved to .NET 8.
+         Switch TargetFramework to net8.0-windows and RevitVersion to 2025+ if needed. -->
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RevitVersion>2024</RevitVersion>
+    <RootNamespace>RevitApiInterface</RootNamespace>
+    <AssemblyName>RevitApiInterface</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Revit ships these assemblies with the desktop application; they are not
+         redistributed via NuGet here. Point HintPath at a local Revit install,
+         or override RevitInstallDir when building, e.g.:
+         dotnet build -p:RevitInstallDir="C:\Program Files\Autodesk\Revit 2024" -->
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitInstallDir)\RevitAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitInstallDir)\RevitAPIUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RevitInstallDir Condition="'$(RevitInstallDir)' == ''">C:\Program Files\Autodesk\Revit $(RevitVersion)</RevitInstallDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Copy the .addin manifest next to the built DLL so it can be dropped
+         straight into %AppData%\Autodesk\Revit\Addins\<version>\ -->
+    <None Include="..\RevitApiInterface.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
